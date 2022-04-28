@@ -29,6 +29,18 @@ app.get('/test', () => {try{
     rollbar.error(error)
 }})
 
+app.get('/critical', () => {try{
+    banana2()
+} catch(error){
+    rollbar.critical(error)
+}})
+
+app.get('/warning', () => {try{
+    banana3()
+} catch(error){
+    rollbar.warning(error)
+}})
+
 const port = process.env.PORT || 4545
 
 app.use(rollbar.errorHandler())
