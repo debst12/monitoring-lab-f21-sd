@@ -21,6 +21,10 @@ app.get('/', (req, res) => {
     rollbar.info('html file served successfully')
 })
 
+app.get('/styles', (req, res) => {
+    res.sendFile(path.join(__dirname, '../styles.css'))
+})
+
 
 // app.get('/test', () => {try{
 //     banana()
@@ -41,18 +45,18 @@ app.get('/', (req, res) => {
 //     rollbar.warning(error)
 // }})
 
-let students = []
+let movies = []
 
-app.post('/api/student', (req, res)=>{
+app.post('/api/movie', (req, res)=>{
     let {name} = req.body
     name = name.trim()
 
-    const index = students.findIndex(studentName=> studentName === name)
+    const index = movies.findIndex(movieName=> movieName === name)
 
     if(index === -1 && name !== ''){
-        students.push(name)
+        movies.push(name)
         rollbar.log('Student added successfully', {author: 'Scott', type: 'manual entry'})
-        res.status(200).send(students)
+        res.status(200).send(movies)
     } else if (name === ''){
         rollbar.error('No name given')
         res.status(400).send('must provide a name.')
