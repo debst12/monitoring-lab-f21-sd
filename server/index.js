@@ -22,9 +22,12 @@ app.get('/', (req, res) => {
 })
 
 
-app.get('/', (req, res) => {
-    res.send.nonExistingFunction()
-})
+app.get('/test', (req, res) => {
+    try {
+        nonExistentFunction();
+      } catch (error) {
+        rollbar.error(error);
+}
 
 const port = process.env.PORT || 4545
 

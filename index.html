@@ -11,7 +11,9 @@
     <button>Click the button</button>
     <script>
         const button = document.querySelector('button')
-        button.addEventListener('click',sayHi())
+        button.addEventListener('click',() => {
+            axios.get('api/test')
+        })
 
 
     </script>
