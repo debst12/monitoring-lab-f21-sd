@@ -41,7 +41,7 @@ app.get('/warning', () => {try{
     rollbar.warning(error)
 }})
 
-app.post('/api/movie', (req, res)=>{
+app.post('/api/student', (req, res)=>{
     let {name} = req.body
     name = name.trim()
 
