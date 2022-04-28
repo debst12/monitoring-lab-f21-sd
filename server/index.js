@@ -18,9 +18,16 @@ rollbar.log('Hello world!')
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'))
+    rollbar.info('html file served successfully')
 })
 
 
+app.get('/', (req, res) => {
+    res.send.nonExistingFunction()
+})
+
 const port = process.env.PORT || 4545
+
+app.use(rollbar.errorHandler())
 
 app.listen(port, () => console.log(`Take us to warp ${port}`))
