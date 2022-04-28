@@ -55,14 +55,14 @@ app.post('/api/movie', (req, res)=>{
 
     if(index === -1 && name !== ''){
         movies.push(name)
-        rollbar.log('Student added successfully', {author: 'Scott', type: 'manual entry'})
+        rollbar.log('Movie added successfully', {author: 'Spencer', type: 'manual entry'})
         res.status(200).send(movies)
     } else if (name === ''){
-        rollbar.error('No name given')
-        res.status(400).send('must provide a name.')
+        rollbar.error('No Movie Title given')
+        res.status(400).send('must provide a movie title.')
     } else {
-        rollbar.error('student already exists')
-        res.status(400).send('that student already exists')
+        rollbar.error('Movie already exists')
+        res.status(400).send('that movie already exists')
     }
 
 })
