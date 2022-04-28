@@ -22,24 +22,26 @@ app.get('/', (req, res) => {
 })
 
 
-app.get('/test', () => {try{
-    banana()
+// app.get('/test', () => {try{
+//     banana()
 
-} catch(error){
-    rollbar.error(error)
-}})
+// } catch(error){
+//     rollbar.error(error)
+// }})
 
-app.get('/critical', () => {try{
-    banana2()
-} catch(error){
-    rollbar.critical(error)
-}})
+// app.get('/critical', () => {try{
+//     banana2()
+// } catch(error){
+//     rollbar.critical(error)
+// }})
 
-app.get('/warning', () => {try{
-    banana3()
-} catch(error){
-    rollbar.warning(error)
-}})
+// app.get('/warning', () => {try{
+//     banana3()
+// } catch(error){
+//     rollbar.warning(error)
+// }})
+
+let students = []
 
 app.post('/api/student', (req, res)=>{
     let {name} = req.body
